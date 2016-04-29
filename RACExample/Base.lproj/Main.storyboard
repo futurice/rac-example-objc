@@ -16,11 +16,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ala-Si-Nwk">
+                                <rect key="frame" x="215" y="223" width="171" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="ACJ-14-Jlb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ala-Si-Nwk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LmQ-eZ-TIg"/>
+                            <constraint firstItem="ala-Si-Nwk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="203" id="gXO-49-Sm5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="ala-Si-Nwk" id="G7J-IU-Ret"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="492" y="477"/>
         </scene>
     </scenes>
 </document>
