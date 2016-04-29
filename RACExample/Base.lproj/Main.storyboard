@@ -28,20 +28,30 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8L-wm-Ech">
                                 <rect key="frame" x="279" y="320" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3dl-3k-JRD">
+                                <rect key="frame" x="208" y="187" width="185" height="29"/>
+                                <segments>
+                                    <segment title="Text Input"/>
+                                    <segment title="Current Date"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ala-Si-Nwk" firstAttribute="top" secondItem="3dl-3k-JRD" secondAttribute="bottom" constant="40" id="DuM-Mq-1Bq"/>
                             <constraint firstItem="ala-Si-Nwk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-30" id="Dxz-dE-qG8"/>
                             <constraint firstItem="ala-Si-Nwk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LmQ-eZ-TIg"/>
+                            <constraint firstItem="3dl-3k-JRD" firstAttribute="centerX" secondItem="ala-Si-Nwk" secondAttribute="centerX" id="hJc-5s-4RO"/>
                             <constraint firstItem="r8L-wm-Ech" firstAttribute="centerX" secondItem="ala-Si-Nwk" secondAttribute="centerX" id="nNV-IQ-Q77"/>
                             <constraint firstItem="r8L-wm-Ech" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="sAD-Ag-Sv1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="r8L-wm-Ech" id="DAI-43-thD"/>
+                        <outlet property="segmentedControl" destination="3dl-3k-JRD" id="Q1p-S3-unc"/>
                         <outlet property="textField" destination="ala-Si-Nwk" id="G7J-IU-Ret"/>
                     </connections>
                 </viewController>
