@@ -18,12 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    /* Creating Observables (called signals in RAC) */
+    /* [1] Create an Observable (called Signal in RAC) */
 
-    // Get signal that sends latest text field values
+    // TODO: Create RACSignal and send some values, printing them to console
+
+    /* [2a] Get a signal sending the latest values of a text field */
+
+    // RACSignal *textSignal = ...
+
     RACSignal *textSignal = self.textField.rac_textSignal;
 
-    /*  Applying basic operators, debugging signals */
+    /* [3] Transform the text values using basic operators */
+    /* [4] Debug the signal by logging its values without subscribing */
+
+    // RACSignal *uppercaseTextSignal = ...
 
     RACSignal *uppercaseTextSignal = [[textSignal map:^(NSString *text) {
         return text.uppercaseString; // transform values
@@ -32,21 +40,31 @@
         NSLog(@"Got text: %@", text); // useful for debugging
     }];
 
-    /* Switching between value streams using a signal of signals */
+    /* [5] Switching between value streams using a signal of signals */
 
-    // Create signal that sends current date every second
-    RACSignal *dateSignal = [[RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]] replayLast];
+    // Create a signal that sends the current date every second
+    // RACSignal *dateSignal = ...
 
-    RACSignal *dateTextSignal = [dateSignal map:^(NSDate *date) {
+    RACSignal *dateSignal = [RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]];
+
+    // Convert the dates to formatted date strings
+    // RACSignal *dateStringSignal = ...
+
+    RACSignal *dateStringSignal = [dateSignal map:^(NSDate *date) {
         return [NSDateFormatter localizedStringFromDate:date
             dateStyle:NSDateFormatterMediumStyle
             timeStyle:NSDateFormatterMediumStyle];
     }];
 
     // Get signal that sends state of segmented control
+    // RACSignal *controlSignal = ...
+
     RACSignal *controlSignal = [[self.segmentedControl
         rac_newSelectedSegmentIndexChannelWithNilValue:@0]
         startWith:@0];
+
+    // Get signal that switches between field text and date string values
+    // RACSignal *labelTextSignal = ...
 
     RACSignal *labelTextSignal = [[controlSignal
         map:^(NSNumber *index) {
@@ -55,14 +73,16 @@
                 case 0:
                     return uppercaseTextSignal;
                 case 1:
-                    return dateTextSignal;
+                    return dateStringSignal;
                 default:
                     return [RACSignal empty];
             }
         }]
         switchToLatest];
 
-    /* Creating UI bindings */
+    /* [6] Cache latest date value to avoid pause when switching to date signal */
+
+    /* [2b] Bind text of label to whatever the final signal sends */
 
     RAC(self.label, text) = labelTextSignal;
 }
