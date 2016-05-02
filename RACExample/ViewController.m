@@ -41,11 +41,14 @@
     }];
 
     /* [5] Switching between value streams using a signal of signals */
+    /* [6] Cache latest date value to avoid pause when switching to date signal */
 
     // Create a signal that sends the current date every second
     // RACSignal *dateSignal = ...
 
-    RACSignal *dateSignal = [RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]];
+    RACSignal *dateSignal = [[RACSignal
+        interval:1 onScheduler:[RACScheduler mainThreadScheduler]]
+        replayLast]; // This implements [6]
 
     // Convert the dates to formatted date strings
     // RACSignal *dateStringSignal = ...
@@ -79,8 +82,6 @@
             }
         }]
         switchToLatest];
-
-    /* [6] Cache latest date value to avoid pause when switching to date signal */
 
     /* [2b] Bind text of label to whatever the final signal sends */
 
