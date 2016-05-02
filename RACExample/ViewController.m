@@ -11,6 +11,10 @@
 
 @interface ViewController ()
 
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic, weak) IBOutlet UILabel *label;
+
 @end
 
 @implementation ViewController
