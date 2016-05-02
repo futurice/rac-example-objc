@@ -88,4 +88,10 @@
     RAC(self.label, text) = labelTextSignal;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    [self.textField becomeFirstResponder];
+}
+
 @end
