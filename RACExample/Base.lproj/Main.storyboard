@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -31,18 +31,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3dl-3k-JRD">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3dl-3k-JRD">
                                 <rect key="frame" x="208" y="187" width="185" height="29"/>
                                 <segments>
                                     <segment title="Text Input"/>
                                     <segment title="Current Date"/>
                                 </segments>
                             </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" value="70" minValue="40" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="VHN-Ui-tXP">
+                                <rect key="frame" x="241" y="117" width="118" height="31"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ala-Si-Nwk" firstAttribute="top" secondItem="3dl-3k-JRD" secondAttribute="bottom" constant="40" id="DuM-Mq-1Bq"/>
                             <constraint firstItem="ala-Si-Nwk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-30" id="Dxz-dE-qG8"/>
+                            <constraint firstItem="3dl-3k-JRD" firstAttribute="top" secondItem="VHN-Ui-tXP" secondAttribute="bottom" constant="40" id="FUm-Sb-67z"/>
+                            <constraint firstItem="VHN-Ui-tXP" firstAttribute="centerX" secondItem="3dl-3k-JRD" secondAttribute="centerX" id="Ino-ek-K7g"/>
                             <constraint firstItem="ala-Si-Nwk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LmQ-eZ-TIg"/>
                             <constraint firstItem="3dl-3k-JRD" firstAttribute="centerX" secondItem="ala-Si-Nwk" secondAttribute="centerX" id="hJc-5s-4RO"/>
                             <constraint firstItem="r8L-wm-Ech" firstAttribute="centerX" secondItem="ala-Si-Nwk" secondAttribute="centerX" id="nNV-IQ-Q77"/>
@@ -52,6 +57,7 @@
                     <connections>
                         <outlet property="label" destination="r8L-wm-Ech" id="DAI-43-thD"/>
                         <outlet property="segmentedControl" destination="3dl-3k-JRD" id="Q1p-S3-unc"/>
+                        <outlet property="slider" destination="VHN-Ui-tXP" id="3iS-Nm-eeL"/>
                         <outlet property="textField" destination="ala-Si-Nwk" id="G7J-IU-Ret"/>
                     </connections>
                 </viewController>

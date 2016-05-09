@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 
+@property (nonatomic, weak) IBOutlet UISlider *slider;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UILabel *label;
@@ -29,6 +30,10 @@
     /* [2] Get a signal sending the latest values of the text field */
 
     // RACSignal *textSignal = ...
+
+    /* [2b] And/or get a signal sending the current value of the slider */
+
+    // RACSignal *sliderSignal = ...
 
     /* [4] Manipulate the text signal using basic operators */
     /* [5] Debug the signal by logging its values without subscribing */
