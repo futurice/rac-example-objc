@@ -48,3 +48,7 @@ The aim is to let the user control what they see in the label, using the segment
 ### 7. Replay the latest value when switching to the date signal
 
 The date signal sends a value every second, meaning that the label text won't update immediately when the user switches to it. We can fix this by appending `replayLast` to the date signal, which causes it to send its last value to new subscribers immediately upon subscription.
+
+### 8. Fix long-running calculation
+
+The `calculate` branch shows a tick counter in the text field and includes a Calculate button to simulate a long-running calculation. When the Calculate button is pressed, the tick counter freezes. Fix this so that the tick counter keeps updating at normal pace even when the simulated calculation is in progress.
